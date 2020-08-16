@@ -16,6 +16,7 @@ class Randomizer():
         self.allBars = []
         self.notes = ['c', 'c#', 'd', 'd#', 'e','f', 'f#', 'g', 'g#', 'a', 'a#', 'b']
 
+
     def printNotes(self):
         print(self.notes)
 
@@ -28,6 +29,11 @@ class Randomizer():
 
     def changeLength(self, length):
         self.length = length
+
+
+    def resetBars(self):
+        self.allBars = []
+
 
     def pure(self):
         for note in range(self.length):
@@ -44,8 +50,9 @@ class Randomizer():
 
         #creates tree
         for i in range(n):
-            newPrefix = prefix + self.notes[i]
+            newPrefix = prefix + self.notes[i] + ' '
             self.permute(newPrefix, k-1)
+
 
 '''
     def random(self, length):

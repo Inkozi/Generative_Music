@@ -13,7 +13,7 @@ def main():
     synth.loop()
 
     r = Randomizer()
-    r.permute('', 5)
+    r.permute('', 2)
     r.prettyPrint();
 
 

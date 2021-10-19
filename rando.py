@@ -1,4 +1,6 @@
 
+import random 
+
 
 '''
     Class: Randomizer
@@ -50,7 +52,7 @@ class Randomizer():
 
         #creates tree
         for i in range(n):
-            newPrefix = prefix + self.notes[i] + ' '
+            newPrefix = prefix + str(self.octaves[random.randrange(0, len(self.octaves))]) + self.notes[i] + ' '
             self.permute(newPrefix, k-1)
 
 

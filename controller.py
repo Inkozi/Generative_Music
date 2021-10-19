@@ -1,7 +1,7 @@
 
-import rtmidi
-import pysine
-from communication import DAC as d 
+#import rtmidi
+#import pysine
+#from communication import DAC as d 
 from synthesizer import Synth
 
 class Controller():
@@ -9,9 +9,9 @@ class Controller():
     def __init__(self):
         self.notesOn = [False]*128
         self.activeNotes = []
-        self.midiin = rtmidi.RtMidiIn()
-        self.comm = d()
-        self.synth = Synth()
+        #self.midiin = rtmidi.RtMidiIn()
+        #self.comm = d()
+        #self.synth = Synth()
         self.packet = {'Name': '', 'Number': 0, 'Active': False, 'Velocity': 0}
         self.test = False
     
@@ -78,8 +78,8 @@ class Controller():
             print(note)
             temp = note[0] + note[1]
             temp = temp.lower()
-            self.synth.updateFreq(self.comm.noteToFreq(temp))
-            self.synth.play()
+            #self.synth.updateFreq(self.comm.noteToFreq(temp))
+            #self.synth.play()
 
     ''' turn midi data into frequency data for purr data '''
     def noteToFreq(self, note):
@@ -88,20 +88,34 @@ class Controller():
         return freq
 
     def loop(self):
+        self.play();
+
+
+
+
+
+
+
+        '''
         if (not self.test):
-            ports = range(self.midiin.getPortCount())
-            print(ports)
+            #ports = range(self.midiin.getPortCount())
+            #print(ports)
+            pass
             if ports:
                 for i in ports:
-                    print("port-name: " + self.midiin.getPortName(i))
-                    print("Opening port 0!") 
-                    self.midiin.openPort(1)
+                    pass
+                    #print("port-name: " + self.midiin.getPortName(i))
+                    #print("Opening port 0!") 
+                    #self.midiin.openPort(1)
                 while True:
-                    m = self.midiin.getMessage(250) # some timeout in ms
+                    pass
+                    #m = self.midiin.getMessage(250) # some timeout in ms
                     if m:
-                        self.print_message(m)
+                        #self.print_message(m)
                         self.play()
             else:
                 print('NO MIDI INPUT PORTS!')
         else:
             self.play()
+
+        '''

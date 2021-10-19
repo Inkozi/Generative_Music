@@ -1,5 +1,5 @@
-import pyaudio
-import sounddevice as sd
+#import pyaudio
+#import sounddevice as sd
 import numpy as np
 import time
 
@@ -26,7 +26,7 @@ class Synth():
         self.sampwidth = 1
         self.duration = 0.1
         self.frequency = 440
-        self.s = pyaudio.PyAudio()
+        #self.s = pyaudio.PyAudio()
         self.stream = ''
         self.f = Frame(self.audio)
 
